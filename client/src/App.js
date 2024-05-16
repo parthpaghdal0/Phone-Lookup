@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:5010");
+const socket = io.connect("http://52.15.144.174:5010");
 
 function App() {
   const [data, setData] = useState([]);
