@@ -21,9 +21,10 @@ io.on('connection', (socket) => {
 
 const net2phone = async (req, res) => {
   console.log(req.body);
-  const result = await extractInfo(req.body.dialed_number);
+  const result = await extractInfo(req.body.originating_number);
 
-  io.to(req.body.name).emit("data", result);
+  console.log('sent', result.length, 'to', req.body.user_name);
+  io.to(req.body.user_name).emit("data", result);
 
   return res.status(200).json({ result: true });
 }
